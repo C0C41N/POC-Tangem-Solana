@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */; };
 		E3CE85942C91799B00B26374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85932C91799B00B26374 /* ContentView.swift */; };
-		E3CE85962C91799B00B26374 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85952C91799B00B26374 /* Item.swift */; };
 		E3CE85982C91799E00B26374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CE85972C91799E00B26374 /* Assets.xcassets */; };
 		E3CE859B2C91799E00B26374 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CE859A2C91799E00B26374 /* Preview Assets.xcassets */; };
+		E3CE85A22C91825500B26374 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85A12C91825500B26374 /* Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E3CE858E2C91799B00B26374 /* POC Tangem Solana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POC Tangem Solana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POC_Tangem_SolanaApp.swift; sourceTree = "<group>"; };
 		E3CE85932C91799B00B26374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E3CE85952C91799B00B26374 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E3CE85972C91799E00B26374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3CE859A2C91799E00B26374 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3CE85A12C91825500B26374 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			children = (
 				E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */,
 				E3CE85932C91799B00B26374 /* ContentView.swift */,
-				E3CE85952C91799B00B26374 /* Item.swift */,
+				E3CE85A12C91825500B26374 /* Actions.swift */,
 				E3CE85972C91799E00B26374 /* Assets.xcassets */,
 				E3CE85992C91799E00B26374 /* Preview Content */,
 			);
@@ -140,8 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CE85A22C91825500B26374 /* Actions.swift in Sources */,
 				E3CE85942C91799B00B26374 /* ContentView.swift in Sources */,
-				E3CE85962C91799B00B26374 /* Item.swift in Sources */,
 				E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
