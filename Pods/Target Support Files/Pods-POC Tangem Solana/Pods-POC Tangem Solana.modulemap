@@ -1,0 +1,6 @@
+module Pods_POC_Tangem_Solana {
+  umbrella header "Pods-POC Tangem Solana-umbrella.h"
+
+  export *
+  module * { export * }
+}

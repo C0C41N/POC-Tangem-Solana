@@ -1,0 +1,6 @@
+module TangemSdk {
+  umbrella header "TangemSdk-umbrella.h"
+
+  export *
+  module * { export * }
+}
