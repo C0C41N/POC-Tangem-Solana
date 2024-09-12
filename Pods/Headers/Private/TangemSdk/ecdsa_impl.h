@@ -1,1 +1,0 @@
-../../../TangemSdk/TangemSdk/TangemSdk/Crypto/secp256k1/src/ecdsa_impl.h

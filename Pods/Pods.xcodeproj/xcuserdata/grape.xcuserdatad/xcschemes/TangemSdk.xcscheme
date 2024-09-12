@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E088C4968B7EBDD549469B981C0F8526"
-               BuildableName = "libTangemSdk.a"
+               BuildableName = "TangemSdk.framework"
                BlueprintName = "TangemSdk"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

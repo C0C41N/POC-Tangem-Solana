@@ -1,0 +1,25 @@
+import Foundation
+
+public struct RPCEndpoint: Hashable, Codable {
+    public let url: URL
+    public let urlWebSocket: URL
+    public let network: Network
+    
+    public let apiKeyHeaderName: String?
+    public let apiKeyHeaderValue: String?
+    
+    public init(url: URL, urlWebSocket: URL, network: Network, apiKeyHeaderName: String? = nil, apiKeyHeaderValue: String? = nil) {
+        self.url = url
+        self.urlWebSocket = urlWebSocket
+        self.network = network
+        
+        self.apiKeyHeaderName = apiKeyHeaderName
+        self.apiKeyHeaderValue = apiKeyHeaderValue
+    }
+
+    public static let mainnetBetaSerum = RPCEndpoint(url: URL(string: "https://solana-api.projectserum.com")!, urlWebSocket: URL(string: "wss://solana-api.projectserum.com")!, network: .mainnetBeta)
+    public static let mainnetBetaSolana = RPCEndpoint(url: URL(string: "https://api.mainnet-beta.solana.com")!, urlWebSocket: URL(string: "wss://api.mainnet-beta.solana.com")!, network: .mainnetBeta)
+    public static let devnetSolana = RPCEndpoint(url: URL(string: "https://api.devnet.solana.com")!, urlWebSocket: URL(string: "wss://api.devnet.solana.com")!, network: .devnet)
+    public static let devnetGenesysGo = RPCEndpoint(url: URL(string: "https://psytrbhymqlkfrhudd.dev.genesysgo.net:8899")!, urlWebSocket: URL(string: "wss://psytrbhymqlkfrhudd.dev.genesysgo.net:8900")!, network: .devnet)
+    public static let testnetSolana = RPCEndpoint(url: URL(string: "https://api.testnet.solana.com")!, urlWebSocket: URL(string: "wss://api.testnet.solana.com")!, network: .testnet)
+}

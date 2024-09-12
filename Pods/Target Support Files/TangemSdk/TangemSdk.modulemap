@@ -1,4 +1,4 @@
-module TangemSdk {
+framework module TangemSdk {
   umbrella header "TangemSdk-umbrella.h"
 
   export *

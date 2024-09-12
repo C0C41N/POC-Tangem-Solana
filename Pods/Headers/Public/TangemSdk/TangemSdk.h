@@ -1,1 +1,0 @@
-../../../TangemSdk/TangemSdk/TangemSdk/TangemSdk.h

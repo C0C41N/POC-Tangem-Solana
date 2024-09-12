@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-POC Tangem Solana/Pods-POC Tangem Solana-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Solana.Swift/Solana_Swift.framework
+${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
+${BUILT_PRODUCTS_DIR}/TangemSdk/TangemSdk.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/TangemSdk/Bls_Signature.framework/Bls_Signature

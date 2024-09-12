@@ -19,12 +19,6 @@ class Blockchain {
         
         let endpoint = RPCEndpoint.devnetSolana
         
-        //        let endpoint = RPCEndpoint(
-        //            url: URL(string: "https://light-still-yard.solana-devnet.quiknode.pro/656227547c592e74f178b3e62ee9b6b51f515292/")!,
-        //            urlWebSocket: URL(string: "wss://light-still-yard.solana-devnet.quiknode.pro/656227547c592e74f178b3e62ee9b6b51f515292/")!,
-        //            network: .devnet
-        //        )
-        
         let router = NetworkingRouter(endpoint: endpoint)
         let solana = Solana(router: router)
         
@@ -55,7 +49,7 @@ class Blockchain {
                 
                 print("Before making api call")
                 
-                let blockhash = try await solana.api.getRecentBlockhash()
+                let blockhash = try await solana.api.getLatestBlockhash()
                 
                 print("Recent Blockhash: \(blockhash)")
                 
@@ -69,19 +63,19 @@ class Blockchain {
                     print("signing failed!")
                     return
                 }
-                
+//                
                 guard case .success(let serializedTransactionData) = transaction.serialize() else {
                     print("Failed to serialize transaction!")
                     return
                 }
-                
+//                
                 let serializedTransactionBase64 = serializedTransactionData.base64EncodedString()
-                
+//                
                 print("serializedTransactionBase64: \(serializedTransactionBase64)")
-                
-                let transactionId = try await solana.api.sendTransaction(serializedTransaction: serializedTransactionBase64)
-                
-                print("Transaction successful. ID: \(transactionId)")
+//                
+//                let transactionId = try await solana.api.sendTransaction(serializedTransaction: serializedTransactionBase64)
+//                
+//                print("Transaction successful. ID: \(transactionId)")
                 
             } catch {
                 
