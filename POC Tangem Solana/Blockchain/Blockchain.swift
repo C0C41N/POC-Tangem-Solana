@@ -63,19 +63,23 @@ class Blockchain {
                     print("signing failed!")
                     return
                 }
-//                
+                
                 guard case .success(let serializedTransactionData) = transaction.serialize() else {
                     print("Failed to serialize transaction!")
                     return
                 }
-//                
+                
                 let serializedTransactionBase64 = serializedTransactionData.base64EncodedString()
-//                
+                
                 print("serializedTransactionBase64: \(serializedTransactionBase64)")
-//                
-//                let transactionId = try await solana.api.sendTransaction(serializedTransaction: serializedTransactionBase64)
-//                
-//                print("Transaction successful. ID: \(transactionId)")
+                
+                let trxCount = try await solana.api.getTransactionCount()
+                
+                print("trxCount: \(trxCount)")
+  
+                let transactionId = try await solana.api.sendTransaction(serializedTransaction: serializedTransactionBase64)
+                
+                print("Transaction successful. ID: \(transactionId)")
                 
             } catch {
                 
