@@ -25,6 +25,17 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            Button(action: {
+                actions.trx()
+            }) {
+                Text("TRX")
+                    .font(.title)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
             Spacer()
         }
     }

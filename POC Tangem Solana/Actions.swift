@@ -9,8 +9,10 @@ import Foundation
 import TangemSdk
 
 class Actions {
+
     @Published var accessCodeRequestPolicy: AccessCodeRequestPolicy = .default
     private lazy var _tangemSdk: TangemSdk = { .init() }()
+
     private var tangemSdk: TangemSdk {
         var config = Config()
         config.linkedTerminal = false
@@ -30,6 +32,8 @@ class Actions {
         return _tangemSdk
     }
     
+    private var blockchain = Blockchain()
+    
     func scan() {
         print("Calling tangemSdk.scan")
         tangemSdk.scanCard(initialMessage: Message(header: "Scan Card", body: "Tap Tangem Card to learn more")) { result in
@@ -45,8 +49,12 @@ class Actions {
                 ed25519Wallets.enumerated().forEach { index, wallet in
                     print("Wallet \(index): HexString[\(wallet.publicKey.hexString)]")
                 }
-
             }
         }
+    }
+    
+    func trx() {
+        print("HEYY TRX was pressed!")
+        blockchain.xyz()
     }
 }

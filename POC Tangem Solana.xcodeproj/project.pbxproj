@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		39463CC754A9C00A0C481810 /* libPods-POC Tangem Solana.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCF6A216F5CA8F2A69DB63B /* libPods-POC Tangem Solana.a */; };
+		E37DE7982C91CB7C00E9A735 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E37DE7972C91CB7C00E9A735 /* Solana */; };
+		E37DE79B2C91D5F900E9A735 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = E37DE79A2C91D5F900E9A735 /* Starscream */; };
+		E37DE79E2C91D6DB00E9A735 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */; };
 		E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */; };
 		E3CE85942C91799B00B26374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85932C91799B00B26374 /* ContentView.swift */; };
 		E3CE85982C91799E00B26374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CE85972C91799E00B26374 /* Assets.xcassets */; };
@@ -19,6 +22,7 @@
 		3FCF6A216F5CA8F2A69DB63B /* libPods-POC Tangem Solana.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POC Tangem Solana.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42EC4DA43F3C7E84A449AC7 /* Pods-POC Tangem Solana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POC Tangem Solana.release.xcconfig"; path = "Target Support Files/Pods-POC Tangem Solana/Pods-POC Tangem Solana.release.xcconfig"; sourceTree = "<group>"; };
 		E0329BFAD2662ADFE95C3703 /* Pods-POC Tangem Solana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POC Tangem Solana.debug.xcconfig"; path = "Target Support Files/Pods-POC Tangem Solana/Pods-POC Tangem Solana.debug.xcconfig"; sourceTree = "<group>"; };
+		E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		E3BA974A2C91A08C005C9F27 /* POC-Tangem-Solana-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "POC-Tangem-Solana-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E3BA97542C91A6EA005C9F27 /* POC Tangem SolanaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaRelease.entitlements"; sourceTree = "<group>"; };
 		E3BA97552C91A7BF005C9F27 /* POC Tangem SolanaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaDebug.entitlements"; sourceTree = "<group>"; };
@@ -35,7 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37DE7982C91CB7C00E9A735 /* Solana in Frameworks */,
 				39463CC754A9C00A0C481810 /* libPods-POC Tangem Solana.a in Frameworks */,
+				E37DE79B2C91D5F900E9A735 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E37DE79C2C91D6A900E9A735 /* Blockchain */ = {
+			isa = PBXGroup;
+			children = (
+				E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */,
+			);
+			path = Blockchain;
+			sourceTree = "<group>";
+		};
 		E3CE85852C91799B00B26374 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +94,7 @@
 		E3CE85902C91799B00B26374 /* POC Tangem Solana */ = {
 			isa = PBXGroup;
 			children = (
+				E37DE79C2C91D6A900E9A735 /* Blockchain */,
 				E3BA97552C91A7BF005C9F27 /* POC Tangem SolanaDebug.entitlements */,
 				E3BA97542C91A6EA005C9F27 /* POC Tangem SolanaRelease.entitlements */,
 				E3BA974A2C91A08C005C9F27 /* POC-Tangem-Solana-Info.plist */,
@@ -119,6 +134,10 @@
 			dependencies = (
 			);
 			name = "POC Tangem Solana";
+			packageProductDependencies = (
+				E37DE7972C91CB7C00E9A735 /* Solana */,
+				E37DE79A2C91D5F900E9A735 /* Starscream */,
+			);
 			productName = "POC Tangem Solana";
 			productReference = E3CE858E2C91799B00B26374 /* POC Tangem Solana.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +166,10 @@
 				Base,
 			);
 			mainGroup = E3CE85852C91799B00B26374;
+			packageReferences = (
+				E37DE7962C91CB7C00E9A735 /* XCRemoteSwiftPackageReference "Solana" */,
+				E37DE7992C91D5F900E9A735 /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
 			productRefGroup = E3CE858F2C91799B00B26374 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CE85A22C91825500B26374 /* Actions.swift in Sources */,
+				E37DE79E2C91D6DB00E9A735 /* Blockchain.swift in Sources */,
 				E3CE85942C91799B00B26374 /* ContentView.swift in Sources */,
 				E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */,
 			);
@@ -454,6 +478,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E37DE7962C91CB7C00E9A735 /* XCRemoteSwiftPackageReference "Solana" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/metaplex-foundation/Solana.Swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E37DE7992C91D5F900E9A735 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E37DE7972C91CB7C00E9A735 /* Solana */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E37DE7962C91CB7C00E9A735 /* XCRemoteSwiftPackageReference "Solana" */;
+			productName = Solana;
+		};
+		E37DE79A2C91D5F900E9A735 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E37DE7992C91D5F900E9A735 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3CE85862C91799B00B26374 /* Project object */;
 }

@@ -1,3 +1,5 @@
+use_frameworks!
+
 platform :ios, '15.0'
 
 target 'POC Tangem Solana' do
