@@ -9,17 +9,18 @@ import Foundation
 import TangemSdk
 
 class TangemProvider {
-    
-    private var accessCodeRequestPolicy: AccessCodeRequestPolicy = .default
 
-    private lazy var tangemSdk: TangemSdk = {
+    private static var tangemSdk: TangemSdk = {
+
         var config = Config()
+
         config.linkedTerminal = false
         config.allowUntrustedCards = true
         config.handleErrors = true
         config.filter.allowedCardTypes = FirmwareVersion.FirmwareType.allCases
-        config.accessCodeRequestPolicy = accessCodeRequestPolicy
-        config.logConfig = .verbose
+        config.accessCodeRequestPolicy = .alwaysWithBiometrics
+        config.logConfig = .release
+
         config.defaultDerivationPaths = [
             .secp256k1: [try! DerivationPath(rawPath: "m/0'/1")],
             .secp256r1: [try! DerivationPath(rawPath: "m/0'/1")],
@@ -27,13 +28,15 @@ class TangemProvider {
             .ed25519_slip0010: [try! DerivationPath(rawPath: "m/0'/1'")],
             .bip0340: [try! DerivationPath(rawPath: "m/0'/1")]
         ]
-        
+
         let sdk = TangemSdk()
         sdk.config = config
         return sdk
+
     }()
-    
-    func getTangemSdk() -> TangemSdk {
+
+    public static func getTangemSdk() -> TangemSdk {
         return tangemSdk
     }
+
 }

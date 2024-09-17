@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0EF06D254255A43E4EFFF15A /* Pods_POC_Tangem_Solana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4541A57ED3BE2AD067368F /* Pods_POC_Tangem_Solana.framework */; };
 		E37DE79E2C91D6DB00E9A735 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */; };
-		E37DE7B32C92FD4600E9A735 /* File in Resources */ = {isa = PBXBuildFile; fileRef = E37DE7B22C92FD4600E9A735 /* File */; };
 		E37DE7B52C9302F900E9A735 /* getLatestBlockhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7B42C9302F900E9A735 /* getLatestBlockhash.swift */; };
 		E37DE7B82C9304B500E9A735 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E37DE7B72C9304B500E9A735 /* Solana */; };
 		E37DE7BD2C931B0E00E9A735 /* TangemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */; };
 		E37DE7BF2C93352C00E9A735 /* TangemSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7BE2C93352C00E9A735 /* TangemSigner.swift */; };
+		E37DE7D52C9970F300E9A735 /* LamportsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7D42C9970F300E9A735 /* LamportsConverter.swift */; };
 		E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */; };
 		E3CE85942C91799B00B26374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85932C91799B00B26374 /* ContentView.swift */; };
 		E3CE85982C91799E00B26374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CE85972C91799E00B26374 /* Assets.xcassets */; };
@@ -26,10 +26,10 @@
 		DA4541A57ED3BE2AD067368F /* Pods_POC_Tangem_Solana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POC_Tangem_Solana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0329BFAD2662ADFE95C3703 /* Pods-POC Tangem Solana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POC Tangem Solana.debug.xcconfig"; path = "Target Support Files/Pods-POC Tangem Solana/Pods-POC Tangem Solana.debug.xcconfig"; sourceTree = "<group>"; };
 		E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
-		E37DE7B22C92FD4600E9A735 /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		E37DE7B42C9302F900E9A735 /* getLatestBlockhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getLatestBlockhash.swift; sourceTree = "<group>"; };
 		E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangemProvider.swift; sourceTree = "<group>"; };
 		E37DE7BE2C93352C00E9A735 /* TangemSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangemSigner.swift; sourceTree = "<group>"; };
+		E37DE7D42C9970F300E9A735 /* LamportsConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LamportsConverter.swift; sourceTree = "<group>"; };
 		E3BA974A2C91A08C005C9F27 /* POC-Tangem-Solana-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "POC-Tangem-Solana-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E3BA97542C91A6EA005C9F27 /* POC Tangem SolanaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaRelease.entitlements"; sourceTree = "<group>"; };
 		E3BA97552C91A7BF005C9F27 /* POC Tangem SolanaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaDebug.entitlements"; sourceTree = "<group>"; };
@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */,
-				E37DE7B22C92FD4600E9A735 /* File */,
 				E37DE7BE2C93352C00E9A735 /* TangemSigner.swift */,
 			);
 			path = Blockchain;
@@ -87,6 +86,15 @@
 				E37DE7B42C9302F900E9A735 /* getLatestBlockhash.swift */,
 			);
 			path = Patches;
+			sourceTree = "<group>";
+		};
+		E37DE7D32C9970AA00E9A735 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */,
+				E37DE7D42C9970F300E9A735 /* LamportsConverter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E3CE85852C91799B00B26374 = {
@@ -110,6 +118,7 @@
 		E3CE85902C91799B00B26374 /* POC Tangem Solana */ = {
 			isa = PBXGroup;
 			children = (
+				E37DE7D32C9970AA00E9A735 /* Utils */,
 				E37DE7BB2C93098700E9A735 /* Patches */,
 				E37DE79C2C91D6A900E9A735 /* Blockchain */,
 				E3BA97552C91A7BF005C9F27 /* POC Tangem SolanaDebug.entitlements */,
@@ -120,7 +129,6 @@
 				E3CE85A12C91825500B26374 /* Actions.swift */,
 				E3CE85972C91799E00B26374 /* Assets.xcassets */,
 				E3CE85992C91799E00B26374 /* Preview Content */,
-				E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */,
 			);
 			path = "POC Tangem Solana";
 			sourceTree = "<group>";
@@ -201,7 +209,6 @@
 			files = (
 				E3CE859B2C91799E00B26374 /* Preview Assets.xcassets in Resources */,
 				E3CE85982C91799E00B26374 /* Assets.xcassets in Resources */,
-				E37DE7B32C92FD4600E9A735 /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +265,7 @@
 				E37DE79E2C91D6DB00E9A735 /* Blockchain.swift in Sources */,
 				E37DE7BD2C931B0E00E9A735 /* TangemProvider.swift in Sources */,
 				E3CE85942C91799B00B26374 /* ContentView.swift in Sources */,
+				E37DE7D52C9970F300E9A735 /* LamportsConverter.swift in Sources */,
 				E37DE7BF2C93352C00E9A735 /* TangemSigner.swift in Sources */,
 				E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */,
 				E37DE7B52C9302F900E9A735 /* getLatestBlockhash.swift in Sources */,
