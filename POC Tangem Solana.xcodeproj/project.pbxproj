@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0EF06D254255A43E4EFFF15A /* Pods_POC_Tangem_Solana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4541A57ED3BE2AD067368F /* Pods_POC_Tangem_Solana.framework */; };
+		E32989A72C9C404000478C0F /* TangemSdk in Frameworks */ = {isa = PBXBuildFile; productRef = E32989A62C9C404000478C0F /* TangemSdk */; };
 		E37DE79E2C91D6DB00E9A735 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE79D2C91D6DB00E9A735 /* Blockchain.swift */; };
 		E37DE7B52C9302F900E9A735 /* getLatestBlockhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7B42C9302F900E9A735 /* getLatestBlockhash.swift */; };
 		E37DE7B82C9304B500E9A735 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E37DE7B72C9304B500E9A735 /* Solana */; };
 		E37DE7BD2C931B0E00E9A735 /* TangemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */; };
 		E37DE7BF2C93352C00E9A735 /* TangemSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7BE2C93352C00E9A735 /* TangemSigner.swift */; };
 		E37DE7D52C9970F300E9A735 /* LamportsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7D42C9970F300E9A735 /* LamportsConverter.swift */; };
-		E37DE7DD2C9AC80500E9A735 /* TangemSdk in Frameworks */ = {isa = PBXBuildFile; productRef = E37DE7DC2C9AC80500E9A735 /* TangemSdk */; };
 		E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */; };
 		E3CE85942C91799B00B26374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85932C91799B00B26374 /* ContentView.swift */; };
 		E3CE85982C91799E00B26374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CE85972C91799E00B26374 /* Assets.xcassets */; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E37DE7DD2C9AC80500E9A735 /* TangemSdk in Frameworks */,
+				E32989A72C9C404000478C0F /* TangemSdk in Frameworks */,
 				E37DE7B82C9304B500E9A735 /* Solana in Frameworks */,
 				0EF06D254255A43E4EFFF15A /* Pods_POC_Tangem_Solana.framework in Frameworks */,
 			);
@@ -163,7 +163,7 @@
 			name = "POC Tangem Solana";
 			packageProductDependencies = (
 				E37DE7B72C9304B500E9A735 /* Solana */,
-				E37DE7DC2C9AC80500E9A735 /* TangemSdk */,
+				E32989A62C9C404000478C0F /* TangemSdk */,
 			);
 			productName = "POC Tangem Solana";
 			productReference = E3CE858E2C91799B00B26374 /* POC Tangem Solana.app */;
@@ -195,7 +195,7 @@
 			mainGroup = E3CE85852C91799B00B26374;
 			packageReferences = (
 				E37DE7B62C9304B500E9A735 /* XCLocalSwiftPackageReference "../Solana.Swift" */,
-				E37DE7DB2C9AC80500E9A735 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */,
+				E32989A52C9C404000478C0F /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */,
 			);
 			productRefGroup = E3CE858F2C91799B00B26374 /* Products */;
 			projectDirPath = "";
@@ -501,7 +501,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E37DE7DB2C9AC80500E9A735 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */ = {
+		E32989A52C9C404000478C0F /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/C0C41N/tangem-sdk-ios";
 			requirement = {
@@ -512,14 +512,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E32989A62C9C404000478C0F /* TangemSdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32989A52C9C404000478C0F /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */;
+			productName = TangemSdk;
+		};
 		E37DE7B72C9304B500E9A735 /* Solana */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Solana;
-		};
-		E37DE7DC2C9AC80500E9A735 /* TangemSdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E37DE7DB2C9AC80500E9A735 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */;
-			productName = TangemSdk;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

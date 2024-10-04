@@ -7,12 +7,13 @@
 
 import Foundation
 import Solana
+import TangemSdk
 
 class Blockchain {
     
     private let tangemSdk = TangemProvider.getTangemSdk()
     
-    func trxUsingTangem() {
+    func trxSolana() {
         
         let endpoint = RPCEndpoint.devnetSolana
         let router = NetworkingRouter(endpoint: endpoint)
@@ -95,6 +96,49 @@ class Blockchain {
             
         }
         
+    }
+    
+    func signTronHash() {
+
+        let tangemPublicKey = Base58.decode("261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx")
+        
+        let hash = "8300faae11f235eeef2c1dd66026df91304d70b6c27730a96f9b45b83d46b5d9"
+        
+        tangemSdk.sign(hash: Data(hexString: hash), walletPublicKey: Data(tangemPublicKey.bytes)) { result in
+            switch result {
+            case .success(let response):
+                print("Signature: \(response.signature.hexString)")
+                
+                do {
+                    let signature = try Secp256k1Signature(with: response.signature)
+                    let unmarshalledSignature = try signature.unmarshal(with: Data(tangemPublicKey.bytes).dropFirst(), hash: Data(hexString: hash))
+                    
+                    guard unmarshalledSignature.v.count == 1 else {
+                        print("Error: unmarshalledSignature.v.count == 1")
+                        return
+                    }
+                    
+                    let recoveryId = unmarshalledSignature.v[0] - 27
+                    
+                    guard recoveryId >= 0, recoveryId <= 3 else {
+                        print("Error: recoveryId >= 0, recoveryId <= 3")
+                        return
+                    }
+                    
+                    let finalSignature = unmarshalledSignature.r + unmarshalledSignature.s + Data(recoveryId)
+                    
+                    print("Final Signature: \(finalSignature.hexString)")
+                }
+                catch {
+                    print("Error unmarshalling signature")
+                }
+                
+            case .failure(let _error):
+                print("signing failed!")
+            }
+
+        }
+
     }
     
 }

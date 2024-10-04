@@ -26,9 +26,20 @@ struct ContentView: View {
                     .cornerRadius(10)
             }
             Button(action: {
-                actions.trx()
+                actions.trxSolana()
             }) {
-                Text("TRX")
+                Text("Solana TRX")
+                    .font(.title)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            Button(action: {
+                actions.signTronHash()
+            }) {
+                Text("Sign Tron Hash")
                     .font(.title)
                     .padding(.horizontal, 40)
                     .padding(.vertical)
