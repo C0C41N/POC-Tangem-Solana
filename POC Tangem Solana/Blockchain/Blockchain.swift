@@ -98,23 +98,23 @@ class Blockchain {
         
     }
     
+    
     func signTronHash() {
-
+        
         let tangemPublicKey = Base58.decode("261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx")
         
         let hash = "69fce9dcf2246d8f1065a36af872a3bcd845810343ee810bf66254951331a9bf"
         
         tangemSdk.sign(hash: Data(hexString: hash), walletPublicKey: Data(tangemPublicKey.bytes)) { result in
             switch result {
-                case .success(let response):
-                    print("Signature: \(response.signature.hexString)")
-
-                case .failure(let error):
-                    print("signing failed!")
+            case .success(let response):
+                print("Signature: \(response.signature.hexString)")
+                
+            case .failure(let error):
+                print("signing failed!")
             }
-
+            
         }
-
+        
     }
-    
 }
