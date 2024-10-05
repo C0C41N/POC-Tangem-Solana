@@ -43,7 +43,7 @@ class Actions {
                 case .success(let response):
                     print("Signature: \(response.signature.hexString)")
 
-                case .failure(let error):
+                case .failure:
                     print("signing failed!")
 
             }
