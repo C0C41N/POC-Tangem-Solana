@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+
     @State private var showToast = false
+    @State private var pubKeyBase58: String = ""
+    @State private var unsignedHex: String = ""
+
     let actions = Actions()
 
     var body: some View {
+
         VStack {
+
             Spacer()
-            Button(action: {
-                actions.scan()
-            }) {
+
+            TextField("Enter pubKeyBase58", text: $pubKeyBase58)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .font(.title)
+
+            TextField("Enter unsigned hex", text: $unsignedHex)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .font(.title)
+
+            Button(action: { actions.scan() }) {
                 Text("Scan")
                     .font(.title)
                     .padding(.horizontal, 40)
@@ -25,10 +40,9 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-            Button(action: {
-                actions.trxSolana()
-            }) {
-                Text("Solana TRX")
+
+            Button(action: { actions.sign(unsignedHex: unsignedHex, pubKeyBase58: pubKeyBase58) }) {
+                Text("Sign")
                     .font(.title)
                     .padding(.horizontal, 40)
                     .padding(.vertical)
@@ -36,18 +50,9 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-            Button(action: {
-                actions.signTronHash()
-            }) {
-                Text("Sign Tron Hash")
-                    .font(.title)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+
             Spacer()
+
         }
     }
 }
