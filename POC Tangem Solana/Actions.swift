@@ -61,7 +61,48 @@ class Actions {
     }
     
     func createWallets() {
-        print("Hello world!")
+
+        Task {
+
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+            
+            guard case .success(let session) = startSessionResult else {
+                if case .failure(let error) = startSessionResult {
+                    print("Start Session failed: \(error)")
+                }
+                return
+            }
+            
+            let scan = ScanTask()
+            let scanResult = await scan.runAsync(in: session)
+            
+            guard case .success(let card) = scanResult else {
+                if case .failure(let error) = scanResult {
+                    print("Start Session failed: \(error)")
+                }
+                session.stop()
+                return
+            }
+            
+            print(card.json)
+            
+            let scan2 = ScanTask()
+            let scanResult2 = await scan2.runAsync(in: session)
+            
+            guard case .success(let card2) = scanResult2 else {
+                if case .failure(let error) = scanResult2 {
+                    print("Start Session failed: \(error)")
+                }
+                session.stop()
+                return
+            }
+            
+            print(card2.json)
+            
+            session.stop()
+
+        }
+
     }
     
 }

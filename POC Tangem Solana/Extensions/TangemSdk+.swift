@@ -22,7 +22,7 @@ extension TangemSdk {
             }
         }
     }
-    
+
     func scanAsync(initialMessage: Message) async -> Result<Card, Error> {
         await withCheckedContinuation { continuation in
             self.scanCard(initialMessage: initialMessage) { result in
@@ -35,5 +35,17 @@ extension TangemSdk {
             }
         }
     }
-    
+
+    func startSessionAsync(cardId: String?) async -> Result<CardSession, TangemSdkError> {
+        await withCheckedContinuation { continuation in
+            self.startSession(cardId: cardId) { session, error in
+                if let error = error {
+                    continuation.resume(returning: .failure(error))
+                } else {
+                    continuation.resume(returning: .success(session))
+                }
+            }
+        }
+    }
+
 }
