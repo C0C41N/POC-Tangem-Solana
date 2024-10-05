@@ -7,7 +7,6 @@
 
 import Foundation
 import TangemSdk
-import Solana
 
 class Actions {
 
@@ -34,7 +33,7 @@ class Actions {
 
     func sign(unsignedHex: String, pubKeyBase58: String) {
 
-        let pubKeyData = Data(Base58.decode(pubKeyBase58))
+        let pubKeyData = pubKeyBase58.base58DecodedData
         let hashData = Data(hexString: unsignedHex)
 
         tangemSdk.sign(hash: hashData, walletPublicKey: pubKeyData) { result in

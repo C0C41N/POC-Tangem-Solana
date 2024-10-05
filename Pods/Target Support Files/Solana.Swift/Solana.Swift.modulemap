@@ -1,6 +1,0 @@
-framework module Solana_Swift {
-  umbrella header "Solana.Swift-umbrella.h"
-
-  export *
-  module * { export * }
-}

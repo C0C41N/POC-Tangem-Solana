@@ -1,29 +1,3 @@
-PODS:
-  - Solana.Swift (1.1):
-    - Starscream (= 4.0.8)
-  - Starscream (4.0.8)
-
-DEPENDENCIES:
-  - Solana.Swift (from `https://github.com/tangem/Solana.Swift`, tag `1.2.0-tangem10`)
-
-SPEC REPOS:
-  trunk:
-    - Starscream
-
-EXTERNAL SOURCES:
-  Solana.Swift:
-    :git: https://github.com/tangem/Solana.Swift
-    :tag: 1.2.0-tangem10
-
-CHECKOUT OPTIONS:
-  Solana.Swift:
-    :git: https://github.com/tangem/Solana.Swift
-    :tag: 1.2.0-tangem10
-
-SPEC CHECKSUMS:
-  Solana.Swift: b926815c93f483628ce51d9a51c96567ae14709e
-  Starscream: 19b5533ddb925208db698f0ac508a100b884a1b9
-
-PODFILE CHECKSUM: 2d10006c1929738e06bbc1e649d56f64721b7599
+PODFILE CHECKSUM: edc57f8d1d66b6248eee51706fe3604f20991b44
 
 COCOAPODS: 1.15.2
