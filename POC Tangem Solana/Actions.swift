@@ -51,5 +51,9 @@ class Actions {
         }
 
     }
+
+    func createWallets() {
+        print("Hello world!")
+    }
     
 }

@@ -8,44 +8,90 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @State private var showToast = false
     @State private var pubKeyBase58: String = ""
     @State private var unsignedHex: String = ""
-
+    
     let actions = Actions()
-
+    
     var body: some View {
-
+        
         VStack {
-
+            
             Spacer()
+            
+            HStack {
 
-            TextField("Enter pubKeyBase58", text: $pubKeyBase58)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .font(.title)
+                TextField("pubKeyBase58", text: $pubKeyBase58)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .font(.title3)
+                    .frame(width: 240)
+                    .multilineTextAlignment(.center)
+                    .disabled(true)
+                
+                Button(action: { if let clipboardString = UIPasteboard.general.string { pubKeyBase58 = clipboardString } }) {
+                    Text("Paste").font(.caption)
+                }
+                
+                Button(action: { pubKeyBase58 = "" }) {
+                    Text("Clear").font(.caption)
+                }
 
-            TextField("Enter unsigned hex", text: $unsignedHex)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .font(.title)
+            }
+            .padding()
+
+            HStack {
+
+                TextField("unsignedHex", text: $unsignedHex)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .font(.title3)
+                    .frame(width: 240)
+                    .multilineTextAlignment(.center)
+                    .disabled(true)
+                
+                Button(action: { if let clipboardString = UIPasteboard.general.string { unsignedHex = clipboardString } }) {
+                    Text("Paste").font(.caption)
+                }
+                
+                Button(action: { unsignedHex = "" }) {
+                    Text("Clear").font(.caption)
+                }
+
+            }
+            .padding()
+
+            Spacer().frame(height: 40)
 
             Button(action: { actions.scan() }) {
                 Text("Scan")
-                    .font(.title)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical)
+                    .font(.title3)
+                    .frame(width: 300)
+                    .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
 
+            Spacer().frame(height: 20)
+
             Button(action: { actions.sign(unsignedHex: unsignedHex, pubKeyBase58: pubKeyBase58) }) {
                 Text("Sign")
-                    .font(.title)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical)
+                    .font(.title3)
+                    .frame(width: 300)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+
+            Spacer().frame(height: 20)
+
+            Button(action: { actions.createWallets() }) {
+                Text("Create Wallets")
+                    .font(.title3)
+                    .frame(width: 300)
+                    .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
