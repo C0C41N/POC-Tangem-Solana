@@ -9,6 +9,7 @@ import Foundation
 import TangemSdk
 
 extension TangemSdk {
+
     func signAsync(hash: Data, walletPublicKey: Data) async -> Result<String, Error> {
         await withCheckedContinuation { continuation in
             self.sign(hash: hash, walletPublicKey: walletPublicKey) { result in
@@ -21,4 +22,18 @@ extension TangemSdk {
             }
         }
     }
+    
+    func scanAsync(initialMessage: Message) async -> Result<Card, Error> {
+        await withCheckedContinuation { continuation in
+            self.scanCard(initialMessage: initialMessage) { result in
+                switch result {
+                case .success(let card):
+                    continuation.resume(returning: .success(card))
+                case .failure(let error):
+                    continuation.resume(returning: .failure(error))
+                }
+            }
+        }
+    }
+    
 }
