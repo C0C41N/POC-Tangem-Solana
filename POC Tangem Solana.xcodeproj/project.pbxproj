@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		096D9D6960C6BAC700F1402F /* Pods_POC_Tangem_Solana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97678330217E3A8637BBA09 /* Pods_POC_Tangem_Solana.framework */; };
 		E32989A72C9C404000478C0F /* TangemSdk in Frameworks */ = {isa = PBXBuildFile; productRef = E32989A62C9C404000478C0F /* TangemSdk */; };
+		E366A4182CB1C9830082F118 /* SignAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366A4172CB1C9680082F118 /* SignAsync.swift */; };
 		E37DE7BD2C931B0E00E9A735 /* TangemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */; };
 		E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */; };
 		E3CE85942C91799B00B26374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE85932C91799B00B26374 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 		2AB59180420D78C17882EB6E /* Pods-POC Tangem Solana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POC Tangem Solana.debug.xcconfig"; path = "Target Support Files/Pods-POC Tangem Solana/Pods-POC Tangem Solana.debug.xcconfig"; sourceTree = "<group>"; };
 		E366A40D2CB176180082F118 /* POC Tangem SolanaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaDebug.entitlements"; sourceTree = "<group>"; };
 		E366A40E2CB176180082F118 /* POC Tangem SolanaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "POC Tangem SolanaRelease.entitlements"; sourceTree = "<group>"; };
+		E366A4172CB1C9680082F118 /* SignAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAsync.swift; sourceTree = "<group>"; };
 		E37DE7BC2C931B0E00E9A735 /* TangemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangemProvider.swift; sourceTree = "<group>"; };
 		E3BA974A2C91A08C005C9F27 /* POC-Tangem-Solana-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "POC-Tangem-Solana-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E3CE858E2C91799B00B26374 /* POC Tangem Solana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POC Tangem Solana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E366A4162CB1C95D0082F118 /* TangemSdk+ */ = {
+			isa = PBXGroup;
+			children = (
+				E366A4172CB1C9680082F118 /* SignAsync.swift */,
+			);
+			path = "TangemSdk+";
+			sourceTree = "<group>";
+		};
 		E37DE7D32C9970AA00E9A735 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		E3CE85902C91799B00B26374 /* POC Tangem Solana */ = {
 			isa = PBXGroup;
 			children = (
+				E366A4162CB1C95D0082F118 /* TangemSdk+ */,
 				E37DE7D32C9970AA00E9A735 /* Utils */,
 				E3BA974A2C91A08C005C9F27 /* POC-Tangem-Solana-Info.plist */,
 				E3CE85912C91799B00B26374 /* POC_Tangem_SolanaApp.swift */,
@@ -219,6 +230,7 @@
 				E37DE7BD2C931B0E00E9A735 /* TangemProvider.swift in Sources */,
 				E3CE85942C91799B00B26374 /* ContentView.swift in Sources */,
 				E3CE85922C91799B00B26374 /* POC_Tangem_SolanaApp.swift in Sources */,
+				E366A4182CB1C9830082F118 /* SignAsync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

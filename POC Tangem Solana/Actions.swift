@@ -36,16 +36,15 @@ class Actions {
         let pubKeyData = pubKeyBase58.base58DecodedData
         let hashData = Data(hexString: unsignedHex)
 
-        tangemSdk.sign(hash: hashData, walletPublicKey: pubKeyData) { result in
+        Task {
 
+            let result = await tangemSdk.signAsync(hash: hashData, walletPublicKey: pubKeyData)
+            
             switch result {
-
-                case .success(let response):
-                    print("Signature: \(response.signature.hexString)")
-
-                case .failure:
-                    print("signing failed!")
-
+            case .success(let signature):
+                print("Signature: \(signature)")
+            case .failure(let error):
+                print("Signing failed: \(error)")
             }
 
         }
