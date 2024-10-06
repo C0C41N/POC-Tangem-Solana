@@ -8,10 +8,15 @@
 import TangemSdk
 
 extension ScanTask {
-    public func runAsync(in session: CardSession) async -> Result<Card, TangemSdkError> {
+    public func runAsync(in session: CardSession) async -> Eval<Card, TangemSdkError> {
         await withCheckedContinuation { continuation in
             self.run(in: session) { result in
-                continuation.resume(returning: result)
+                switch result {
+                case .success(let card):
+                    continuation.resume(returning: .success(card))
+                case .failure(let error):
+                    continuation.resume(returning: .failure(error))
+                }
             }
         }
     }
