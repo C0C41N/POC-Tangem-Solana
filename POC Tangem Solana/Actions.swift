@@ -31,6 +31,8 @@ class Actions {
                 session.stop()
                 return
             }
+            
+            print(card.json)
 
             for wallet in card.wallets {
                 let curve = wallet.curve.rawValue
@@ -47,18 +49,30 @@ class Actions {
     func sign(unsignedHex: String, pubKeyBase58: String) {
 
         Task {
+            
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+
+            guard startSessionResult.success, let session = startSessionResult.value else {
+                print("Start Session failed: \(startSessionResult.error!)")
+                return
+            }
 
             let pubKeyData = pubKeyBase58.base58DecodedData
             let hashData = Data(hexString: unsignedHex)
 
-            let result = await tangemSdk.signAsync(hash: hashData, walletPublicKey: pubKeyData)
+            let sign = SignCommand(hashes: [hashData], walletPublicKey: pubKeyData)
+            let signResult = await sign.runAsync(in: session)
 
-            guard result.success, let signature = result.value else {
-                print("Signing failed: \(result.error!)")
+            guard signResult.success, let response = signResult.value else {
+                print("SignCommand failed: \(signResult.error!)")
+                session.stop()
                 return
             }
 
+            let signature = response.signatures[0].hexString
             print("Signed Hex | \(signature)")
+
+            session.stop()
 
         }
 
