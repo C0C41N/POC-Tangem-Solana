@@ -87,8 +87,20 @@ struct ContentView: View {
 
             Spacer().frame(height: 20)
 
-            Button(action: { actions.createWallets() }) {
-                Text("Create Wallets")
+            Button(action: { actions.purgeAllWallets() }) {
+                Text("Purge All Wallets")
+                    .font(.title3)
+                    .frame(width: 300)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            
+            Spacer().frame(height: 20)
+
+            Button(action: {}) {
+                Text("Create All Wallets")
                     .font(.title3)
                     .frame(width: 300)
                     .padding()

@@ -56,7 +56,7 @@ class Actions {
 
     }
 
-    func createWallets() {
+    func purgeAllWallets() {
 
         Task {
 
@@ -76,18 +76,23 @@ class Actions {
                 return
             }
 
-            print(card.json)
+            for (index, wallet) in card.wallets.enumerated() {
+                let curve = wallet.curve.rawValue
+                let pubKey = wallet.publicKey.base58EncodedString
 
-            let scan2 = ScanTask()
-            let scanResult2 = await scan2.runAsync(in: session)
+                print("Purging wallet \(index) curve [\(curve)] publicKeyBase58: [\(pubKey)]")
 
-            guard scanResult2.success, let card2 = scanResult2.value else {
-                print("ScanTask2 failed: \(scanResult2.error!)")
-                session.stop()
-                return
+                let purge = PurgeWalletCommand(publicKey: wallet.publicKey)
+                let purgeResult = await purge.runAsync(in: session)
+
+                guard purgeResult.success else {
+                    print("PurgeWalletCommand failed: \(purgeResult.error!)")
+                    session.stop()
+                    return
+                }
+
+                print("Successfully purged!")
             }
-
-            print(card2.json)
 
             session.stop()
 
