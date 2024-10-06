@@ -38,7 +38,7 @@ extension TangemSdk {
 
     func startSessionAsync(cardId: String?) async -> Eval<CardSession, TangemSdkError> {
         await withCheckedContinuation { continuation in
-            self.startSession(cardId: cardId) { session, error in
+            self.startSession(cardId: cardId, accessCode: "141414") { session, error in
                 if let error = error {
                     continuation.resume(returning: .failure(error))
                 } else {

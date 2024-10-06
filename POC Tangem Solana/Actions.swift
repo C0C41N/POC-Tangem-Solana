@@ -16,21 +16,29 @@ class Actions {
         
         Task {
 
-            let initialMessage = Message(header: "Scan Card", body: "Tap Tangem Card to learn more")
-            let result = await tangemSdk.scanAsync(initialMessage: initialMessage)
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
 
-            guard result.success, let card = result.value else {
-                print("Failed to scan card: \(result.error!)")
+            guard startSessionResult.success, let session = startSessionResult.value else {
+                print("Start Session failed: \(startSessionResult.error!)")
                 return
             }
 
-            print(card.json)
+            let scan = ScanTask()
+            let scanResult = await scan.runAsync(in: session)
 
-            card.wallets.enumerated().forEach { index, wallet in
+            guard scanResult.success, let card = scanResult.value else {
+                print("ScanTask failed: \(scanResult.error!)")
+                session.stop()
+                return
+            }
+
+            for wallet in card.wallets {
                 let curve = wallet.curve.rawValue
                 let pubKey = wallet.publicKey.base58EncodedString
-                print("Wallet \(index) curve [\(curve)] publicKeyBase58: [\(pubKey)]")
+                print("Wallet \(curve) | \(pubKey)")
             }
+
+            session.stop()
 
         }
 
@@ -50,7 +58,7 @@ class Actions {
                 return
             }
 
-            print("Signature: \(signature)")
+            print("Signed Hex | \(signature)")
 
         }
 
@@ -76,12 +84,7 @@ class Actions {
                 return
             }
 
-            for (index, wallet) in card.wallets.enumerated() {
-                let curve = wallet.curve.rawValue
-                let pubKey = wallet.publicKey.base58EncodedString
-
-                print("Purging wallet \(index) curve [\(curve)] publicKeyBase58: [\(pubKey)]")
-
+            for wallet in card.wallets {
                 let purge = PurgeWalletCommand(publicKey: wallet.publicKey)
                 let purgeResult = await purge.runAsync(in: session)
 
@@ -91,7 +94,42 @@ class Actions {
                     return
                 }
 
-                print("Successfully purged!")
+                let curve = wallet.curve.rawValue
+                let pubKey = wallet.publicKey.base58EncodedString
+
+                print("Purged wallet \(curve) | \(pubKey)")
+            }
+
+            session.stop()
+
+        }
+
+    }
+    
+    func createAllWallets() {
+
+        Task {
+
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+
+            guard startSessionResult.success, let session = startSessionResult.value else {
+                print("Start Session failed: \(startSessionResult.error!)")
+                return
+            }
+
+            let curves: [EllipticCurve] = [.secp256k1, .ed25519, .bls12381_G2_AUG, .bip0340, .ed25519_slip0010]
+
+            for curve in curves {
+                let createWallet = CreateWalletTask(curve: curve)
+                let createWalletResult = await createWallet.runAsync(in: session)
+
+                guard createWalletResult.success, let response = createWalletResult.value else {
+                    print("CreateWalletTask failed: \(createWalletResult.error!)")
+                    session.stop()
+                    return
+                }
+
+                print("Created wallet \(curve.rawValue) | \(response.wallet.publicKey.base58EncodedString)")
             }
 
             session.stop()

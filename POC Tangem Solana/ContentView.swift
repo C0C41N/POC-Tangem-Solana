@@ -99,7 +99,7 @@ struct ContentView: View {
             
             Spacer().frame(height: 20)
 
-            Button(action: {}) {
+            Button(action: { actions.createAllWallets() }) {
                 Text("Create All Wallets")
                     .font(.title3)
                     .frame(width: 300)
