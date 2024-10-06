@@ -16,7 +16,7 @@ class Actions {
         
         Task {
 
-            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil, accessCode: "141414")
 
             guard startSessionResult.success, let session = startSessionResult.value else {
                 print("Start Session failed: \(startSessionResult.error!)")
@@ -50,7 +50,7 @@ class Actions {
 
         Task {
             
-            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil, accessCode: "141414")
 
             guard startSessionResult.success, let session = startSessionResult.value else {
                 print("Start Session failed: \(startSessionResult.error!)")
@@ -82,7 +82,7 @@ class Actions {
 
         Task {
 
-            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil, accessCode: "141414")
 
             guard startSessionResult.success, let session = startSessionResult.value else {
                 print("Start Session failed: \(startSessionResult.error!)")
@@ -124,7 +124,7 @@ class Actions {
 
         Task {
 
-            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil)
+            let startSessionResult = await tangemSdk.startSessionAsync(cardId: nil, accessCode: "141414")
 
             guard startSessionResult.success, let session = startSessionResult.value else {
                 print("Start Session failed: \(startSessionResult.error!)")
